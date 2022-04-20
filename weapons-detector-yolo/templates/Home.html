@@ -1,0 +1,21 @@
+{%extends 'base.html'%} {%block content%}
+<div id="root" class="container">
+
+<ul style="text-align: right; margin-right:5%;">
+    <hr>
+    <div>Welcome fellow Computer Vision enthusiast</div>
+    <div><a href="{{url_for('predict_webcam')}}">Use your Webcam?</a></div>
+</ul>
+<form name="uploadForm" action="" method="POST" enctype="multipart/form-data" novalidate>
+    
+        <div style="text-align: left; margin-left: 5%;">
+            <b>Your Input File:   </b><input type="file" name="filename" id="fileid">
+            <br>
+            <br>
+        </div>
+    <div style="text-align: center;">
+        <button class="mybtn" type="submit">Proceed</button>
+    </div>
+</form>
+</div>
+{%endblock%}

@@ -1,0 +1,18 @@
+{%extends 'base.html'%} {%block content%}
+<div id="root" class="container">
+    <ul style="text-align: right; margin-right:5%;">
+        <hr>
+        <div>Welcome fellow Computer Vision enthusiast</div>
+        <div><a href="{{url_for('predict')}}">Analyze an Image?</a></div>
+    </ul>
+    <br>
+    <br>
+    <form name="uploadForm" action="" method="POST" enctype="multipart/form-data" novalidate>
+        <div>Please ensure your webcam is on!</div>
+        <div style="text-align: center;">
+            <button class="mybtn" type="submit">Proceed</button>
+        </div>
+    </form>
+</div>
+
+{%endblock%}

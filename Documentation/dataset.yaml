@@ -1,0 +1,4 @@
+names: ['pistol', 'smartphone', 'knife', 'monedero', 'billete', 'tarjeta']
+nc: 6
+train: /content/datasets/Weapons-Dataset-1/train/images
+val: /content/datasets/Weapons-Dataset-1/test/images

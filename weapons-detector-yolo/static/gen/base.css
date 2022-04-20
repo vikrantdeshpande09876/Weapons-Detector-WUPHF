@@ -1,0 +1,300 @@
+object {
+    align-content: center;
+    width: 50%;
+    height: 50%;
+}
+
+body {
+    /*margin-top: 350px;*/
+    font-family: 'Cabin', sans-serif;
+    transition: all 0.2s 1000ms 20 ease-in-out;
+}
+
+select {
+    text-align-last: center;
+    text-align: center;
+    -ms-text-align-last: center;
+    -moz-text-align-last: center;
+}
+
+img {
+    opacity: 1;
+    max-width: 4%;
+    float: left;
+    transition: 200ms ease-in-out;
+}
+
+img:hover {
+    opacity: 0.8;
+    transition: 200ms;
+    cursor: pointer;
+    transition-delay: 200ms;
+}
+
+#header1 {
+    font-family: 'Cabin';
+    color: #f1f1f1;
+    background: rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    padding: 0 0 5px 20px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.9);
+    border: black;
+    position: relative;
+    top: 0;
+    width: 100%;
+    left: 0;
+    margin: 0 auto;
+    /*z-index: 999;*/
+    z-index: 10;
+    line-height: 4em;
+}
+
+#flashed_msgs {
+    color: red;
+    margin-top: 1%;
+    float: right;
+    width: 100%;
+    font-weight: bold;
+}
+
+#myheader {
+    padding-top: 5%;
+}
+
+h3 {
+    float: left;
+    font-weight: bolder;
+    /*margin-top: 1.2%;*/
+    margin-top: -3%;
+    position: relative;
+    z-index: 20;
+    color: white;
+}
+
+input[type=text] {
+    text-align: center;
+}
+
+#username {
+    text-align: left;
+}
+
+h3:hover {
+    cursor: pointer;
+}
+
+#gototop {
+    display: inline-block;
+    background-color: #58b8177a;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 25%;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+
+#gototop::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+#gototop:hover {
+    transition: 400ms;
+    cursor: pointer;
+    background-color: #333;
+}
+
+#gototop:active {
+    transition: 400ms;
+    cursor: pointer;
+    background-color: #555;
+}
+
+#gototop.show {
+    opacity: 1;
+    transition: 400ms;
+    cursor: pointer;
+    visibility: visible;
+}
+
+.fa-file-code-o {
+    font-size: 80px !important;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#root {
+    float: none;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 20px 20px 40px 4px rgba(0, 0, 0, 0.6);
+    max-height: 400px;
+}
+
+#subroot {
+    float: none;
+    padding: 15px;
+    border-radius: 6px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    box-shadow: 20px 20px 40px 4px rgba(0, 0, 0, 0.301);
+}
+
+p {
+    padding: 4px;
+}
+
+.mybtn {
+    background-color: #333333;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    border-radius: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+h4,
+h6 {
+    padding: 4px;
+    font-family: Cabin;
+    font-weight: bold;
+}
+
+h6 {
+    text-align: right;
+    margin-right: 10px;
+    transition: 200ms ease-in-out;
+}
+
+h6:hover {
+    font-weight: bolder;
+    font-size: 20px;
+    transition-duration: 400ms;
+}
+
+.row {
+    padding: 10px;
+}
+
+#loading {
+    margin: auto;
+    margin-top: 200px;
+    width: 66px;
+    height: 12px;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    animation: Loading_animation 1000ms 20 ease-in-out;
+    -webkit-animation: Loading_animation 1000ms 20 ease-in-out;
+    -o-animation: Loading_animation 1000ms 20 ease-in-out;
+    -moz-animation: Loading_animation 1000ms 20 ease-in-out;
+}
+
+@keyframes Loading_animation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-moz-keyframes Loading_animation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-o-keyframes Loading_animation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes Loading_animation {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.panel {
+    background: darkgrey;
+    color: white;
+    bottom: 0;
+    margin-top: 100px;
+    width: 100%;
+}
+
+#myself {
+    color: floralwhite;
+    font-weight: bold;
+    animation: Loading_animation 1500ms 20 ease-in-out;
+    -webkit-animation: Loading_animation 1500ms 20 ease-in-out;
+    -o-animation: Loading_animation 1500ms 20 ease-in-out;
+    -moz-animation: Loading_animation 1500ms 20 ease-in-out;
+}
+
+#myself:hover {
+    animation: none;
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.123);
+    border-radius: 2px;
+    transition-delay: 50ms;
+    transition-duration: 300ms;
+    padding: 6px;
+    display: inline;
+}
+
+#resubmit {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    color: rgb(42, 123, 163);
+    cursor: pointer;
+}
+
+#resubmit:hover {
+    color: rgb(8, 115, 168);
+    text-decoration: underline;
+}
