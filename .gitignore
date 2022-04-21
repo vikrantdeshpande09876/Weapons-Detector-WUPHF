@@ -1,3 +1,7 @@
+# Specific folders
+weapons-detector-yolo/runs/detect/*
+weapons-detector-yolo/data/images/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

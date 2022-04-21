@@ -24,8 +24,8 @@ Usage - formats:
                                          yolov5s_edgetpu.tflite     # TensorFlow Edge TPU
 """
 
-import os
-import sys
+import os, io, sys
+from PIL import Image
 from pathlib import Path
 
 import torch
@@ -208,3 +208,11 @@ def run_yolov5_detector(
     if update:
         strip_optimizer(weights)  # update model (to fix SourceChangeWarning)
     return save_dir, final_labels
+
+
+
+def get_image_buffer(abs_path):
+    image = Image.open(abs_path)
+    buffer = io.BytesIO()
+    image.save(buffer, format='jpeg')
+    return buffer.getvalue()

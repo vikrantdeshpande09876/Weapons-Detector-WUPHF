@@ -1,21 +1,13 @@
-import http, io, json, os
+import http, json, os
 from flask import Flask, render_template, request, make_response
 from flask_assets import Bundle, Environment
-from utils.detection import run_yolov5_detector
+from utils.detection import run_yolov5_detector, get_image_buffer
 from utils.kafka_producer import Producer
-from PIL import Image
 
 app = Flask(__name__)
 app.config.from_pyfile('config.py')
 
 
-
-
-def get_image_buffer(abs_path):
-    image = Image.open(abs_path)
-    buffer = io.BytesIO()
-    image.save(buffer, format='jpeg')
-    return buffer.getvalue()
 
 
 
