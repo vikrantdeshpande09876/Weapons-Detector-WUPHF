@@ -1,7 +1,8 @@
-import http, io
+import http, io, json, os
 from flask import Flask, render_template, request, make_response
 from flask_assets import Bundle, Environment
-from my_detection import run as run_yolov5_detector
+from utils.detection import run_yolov5_detector
+from utils.kafka_producer import Producer
 from PIL import Image
 
 app = Flask(__name__)
@@ -29,13 +30,26 @@ def predict():
     if request.method=='POST':
         if request.files.get('filename'):
             image = request.files['filename']
-            image.save(f'data/{image.filename}')
-            save_dir = run_yolov5_detector(source=f'data/{image.filename}')
+            image_filename = f'data/{image.filename}'
+            image.save(image_filename)
+            save_dir, predictions = run_yolov5_detector(source=image_filename, data='data/weapons-detection.yaml')
+            os.remove(image_filename)
+            image_buffer = get_image_buffer(f'{save_dir}/{image.filename}')
+
+            
+            producer = Producer(kafka_server=app.config.get('KAFKA_SERVER'))
+            json_message = json.dumps({'header':'WEAPON DETECTED', 'label':predictions}).encode('utf-8')
+            producer.send_alert_if_weapon(
+                predictions=predictions,
+                topic=app.config.get('RESPONSE_TOPIC'),
+                message=json_message
+                )
+            
             response = make_response()
             response.headers.set('Content-Type', 'image/jpeg')
             response.headers.set('Content-Disposition', 'attachment', filename=f'{image.filename}')
             response.status_code = http.HTTPStatus.OK
-            response.data = get_image_buffer(f'{save_dir}/{image.filename}')
+            response.data = image_buffer
             return response
     return render_template('Home.html', title='Home | Weapons Detector- WOOF!', header='Home | Weapons Detector- WOOF!')
 
@@ -43,7 +57,7 @@ def predict():
 @app.route('/detect-weapons-webcam', methods=['GET', 'POST'])
 def predict_webcam():
     if request.method=='POST':
-        _ = run_yolov5_detector(source=0)
+        _ = run_yolov5_detector(source=0, data='data/weapons-detection.yaml')
     return render_template('Result.html', title='Home | Weapons Detector- WOOF!', header='Home | Weapons Detector- WOOF!')
 
 
