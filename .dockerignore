@@ -1,5 +1,6 @@
 # Specific folders
 docker-kafka-startup/*
+wuph-notification-sender/*
 Documentation/*
 
 # Byte-compiled / optimized / DLL files
