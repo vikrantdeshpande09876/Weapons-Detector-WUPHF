@@ -19,4 +19,4 @@ An AI product package to detect harmful objects and immediately send notificatio
 
 * I'm also compiling [notes](https://github.com/vikrantdeshpande09876/Weapons-Detector-Woof/blob/main/Documentation/Yolo-v4-Notes.docx) from the `YOLOv4` architecture implementation, and how it inspired the creation of `YOLOv5`.
 
-* The name <b*Weapons-Detector: Woof!</b* is inspired from <b*The Office</b*: Ryan's brainchild [WUPHF](https://www.youtube.com/watch?v=OrVskziCc4w)
+* The name <b>Weapons-Detector: Woof!</b> is inspired from <b>The Office</b>: Ryan's brainchild [WUPHF](https://www.youtube.com/watch?v=OrVskziCc4w)
