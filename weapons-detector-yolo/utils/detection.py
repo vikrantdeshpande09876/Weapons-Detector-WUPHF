@@ -73,6 +73,7 @@ def run_yolov5_detector(
         hide_conf=False,  # hide confidences
         half=False,  # use FP16 half-precision inference
         dnn=False,  # use OpenCV DNN for ONNX inference
+        remove_raw=False
 ):
     source = str(source)
     save_img = not nosave and not source.endswith('.txt')  # save inference images
@@ -207,6 +208,9 @@ def run_yolov5_detector(
         LOGGER.info(f"Results saved to {colorstr('bold', save_dir)}{s}")
     if update:
         strip_optimizer(weights)  # update model (to fix SourceChangeWarning)
+    
+    if remove_raw:  os.remove(source)
+    
     return save_dir, final_labels
 
 

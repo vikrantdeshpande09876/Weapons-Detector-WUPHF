@@ -1,0 +1,24 @@
+version: '2'
+services:
+  weapons-reporter:
+    environment:
+      - FLASK_HOST=${FLASK_HOST}
+      - FLASK_PORT=${FLASK_PORT}
+      - DEBUG=${DEBUG}
+      - KAFKA_SERVER=${KAFKA_SERVER}
+      - RESPONSE_TOPIC=${RESPONSE_TOPIC}
+      - GROUP_ID=${GROUP_ID}
+    build: .
+    ports:
+      - "5009:5009"
+    hostname: weapons-reporter
+    container_name: weapons-reporter
+    deploy:
+      resources:
+        limits:
+          memory: 4g
+
+networks:
+  default:
+    external: true
+    name: weapons-app-network
