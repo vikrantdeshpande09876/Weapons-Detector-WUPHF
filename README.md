@@ -27,26 +27,39 @@ An AI product package to detect harmful objects and immediately send notificatio
 # EXECUTION:
 
 <ol>
-<li>Start the <code>weapons-detector</code> Dockerized application:</li>
-<code>> start-app.sh</code>
+<li>Ensure you're in the <code>main</code> branch of <code>Weapons-Detector-WUPHF</code>:</li>
+<code>> git checkout main</code>
 
-<li>Switch into the Git branch called `wuphf-notification-sender`:</li>
+
+<li>Configure your environment parameters in the current directory as a <code>.env</code> file:</li>
+
+<code>DEBUG=False</code>
+<code>SECRET_KEY='vikrantsecretkey'</code>
+<code>FLASK_HOST='0.0.0.0'</code>
+<code>FLASK_PORT='5009'</code>
+<code>KAFKA_SERVER='kafka:9093'</code>
+<code>RESPONSE_TOPIC='REPORT_WEAPONS'</code>
+<code>GROUP_ID='test-consumer-group'</code>
+<li>Start the <code>weapons-detector</code> Dockerized application.</li>
+<code>> start-app.sh</code>
+<br>
+<br>
+<li>Switch into the Git branch called <code>wuphf-notification-sender</code>:</li>
 <code>> git checkout wuphf-notification-sender</code>
 
 <li>Follow the <b>EXECUTION</b> instructions in the <code>README.md</code> for that branch:</li>
-
 <ul>
 <li>Start the <code>kafka</code> Docker container (it already contains <code>zookeeper</code> as a dependency so should run fine):</li>
 <code>> /kafka-dockerized/start-kafka.sh</code>
 
 <li>Configure your environment parameters in the current directory as a <code>.env</code> file:</li>
 
-<code>KAFKA_SERVER='kafka:9093'
-REQUEST_TOPIC='REPORT_WEAPONS'
-GROUP_ID='test-consumer-group'
-SENDER_EMAIL='your_outlook_email_address'
-SENDER_PASSWORD='your_outlook_email_password'
-RECEIVER_EMAIL='vikdeshp@iu.edu'</code>
+<code>KAFKA_SERVER='kafka:9093'</code>
+<code>REQUEST_TOPIC='REPORT_WEAPONS'</code>
+<code>GROUP_ID='test-consumer-group'</code>
+<code>SENDER_EMAIL='***your_outlook_email_address***'</code>
+<code>SENDER_PASSWORD='***your_outlook_email_password***'</code>
+<code>RECEIVER_EMAIL='vikdeshp@iu.edu'</code>
 
 <li>Start the <code>wuphf-notification-sender</code> Docker container:</li>
 <code>> start-app.sh</code>
