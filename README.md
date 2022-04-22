@@ -1,4 +1,4 @@
-# Weapons-Detector-WUPHF
+# Weapons-Detector: WUPHF!
 
 An AI product package to detect harmful objects and immediately send notifications to authorities.
 
@@ -26,8 +26,31 @@ An AI product package to detect harmful objects and immediately send notificatio
 
 # EXECUTION:
 
-1. Start the `kafka` Docker container:
-> `./kafka-dockerized/start-kafka.bat`
+<ol>
+<li>Start the <code>weapons-detector</code> Dockerized application:</li>
+<code>> start-app.sh</code>
 
-2. Start the `weapons-detector` Docker container:
-> `./start-app.bat`
+<li>Switch into the Git branch called `wuphf-notification-sender`:</li>
+<code>> git checkout wuphf-notification-sender</code>
+
+<li>Follow the <b>EXECUTION</b> instructions in the <code>README.md</code> for that branch:</li>
+
+<ul>
+<li>Start the <code>kafka</code> Docker container (it already contains <code>zookeeper</code> as a dependency so should run fine):</li>
+<code>> /kafka-dockerized/start-kafka.sh</code>
+
+<li>Configure your environment parameters in the current directory as a <code>.env</code> file:</li>
+
+<code>KAFKA_SERVER='kafka:9093'
+REQUEST_TOPIC='REPORT_WEAPONS'
+GROUP_ID='test-consumer-group'
+SENDER_EMAIL='your_outlook_email_address'
+SENDER_PASSWORD='your_outlook_email_password'
+RECEIVER_EMAIL='vikdeshp@iu.edu'</code>
+
+<li>Start the <code>wuphf-notification-sender</code> Docker container:</li>
+<code>> start-app.sh</code>
+</ul>
+
+<li>Navigate to <code>localhost:5009</code> and start experimenting!</li>
+</ol>
