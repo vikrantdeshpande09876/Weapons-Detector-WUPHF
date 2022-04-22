@@ -1,18 +1,16 @@
 version: '2'
 services:
-  weapons-reporter:
+  wuph-notification-sender:
     environment:
-      - FLASK_HOST=${FLASK_HOST}
-      - FLASK_PORT=${FLASK_PORT}
-      - DEBUG=${DEBUG}
       - KAFKA_SERVER=${KAFKA_SERVER}
-      - RESPONSE_TOPIC=${RESPONSE_TOPIC}
+      - REQUEST_TOPIC=${REQUEST_TOPIC}
       - GROUP_ID=${GROUP_ID}
+      - SENDER_EMAIL=${SENDER_EMAIL}
+      - SENDER_PASSWORD=${SENDER_PASSWORD}
+      - RECEIVER_EMAIL=${RECEIVER_EMAIL}
     build: .
-    ports:
-      - "5009:5009"
-    hostname: weapons-reporter
-    container_name: weapons-reporter
+    hostname: wuph-notification-sender
+    container_name: wuph-notification-sender
     deploy:
       resources:
         limits:

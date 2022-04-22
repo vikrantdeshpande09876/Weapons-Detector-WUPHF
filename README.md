@@ -26,8 +26,20 @@ An AI product package to detect harmful objects and immediately send notificatio
 
 # EXECUTION:
 
-1. Start the `kafka` Docker container:
-> `./kafka-dockerized/start-kafka.bat`
+1. Start the `kafka` Docker container (it already contains `zookeeper` as a dependency so should run fine):
+> `/kafka-dockerized/start-kafka.sh`
 
-2. Start the `weapons-detector` Docker container:
-> `./start-app.bat`
+2. Configure your environment parameters in the current directory as a `.env` file:
+```
+KAFKA_SERVER='kafka:9093'
+REQUEST_TOPIC='REPORT_WEAPONS'
+GROUP_ID='test-consumer-group'
+SENDER_EMAIL='your_outlook_email_address'
+SENDER_PASSWORD='your_outlook_email_password'
+RECEIVER_EMAIL='vikdeshp@iu.edu'
+```
+
+4. Start the `wuphf-notification-sender` Docker container:
+> `start-app.sh`
+
+5. If the `wuphf-notification-sender` receives a Kafka-message that a weapon was detected, it'll shoot out an email immediately using Outlook as the SMTP server.
