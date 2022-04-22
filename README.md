@@ -67,3 +67,19 @@ An AI product package to detect harmful objects and immediately send notificatio
 
 <li>Navigate to <code>localhost:5009</code> and start experimenting!</li>
 </ol>
+
+
+
+# MODEL EVALUATION METRICS:
+
+1. F1-curve:
+![F1-curve](https://github.com/vikrantdeshpande09876/Weapons-Detector-WUPHF/blob/main/Documentation/Model-Evaluation/F1_curve.png)
+
+2. Confusion Matrix:
+![Confusion matrix](https://github.com/vikrantdeshpande09876/Weapons-Detector-WUPHF/blob/main/Documentation/Model-Evaluation/confusion_matrix.png)
+
+3. Precision-curve:
+![P-curve](https://github.com/vikrantdeshpande09876/Weapons-Detector-WUPHF/blob/main/Documentation/Model-Evaluation/P_curve.png)
+
+4. Recall-curve
+![R-curve](https://github.com/vikrantdeshpande09876/Weapons-Detector-WUPHF/blob/main/Documentation/Model-Evaluation/R_curve.png)
