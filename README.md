@@ -26,6 +26,9 @@ An AI product package to detect harmful objects and immediately send notificatio
 
 # EXECUTION:
 
+
+A set of 3 videos explaining how to setup this entire system is available [here](https://github.com/vikrantdeshpande09876/Weapons-Detector-WUPHF/wiki/Getting-Started)
+
 <ol>
 <li>Ensure you're in the <code>main</code> branch of <code>Weapons-Detector-WUPHF</code>:</li>
 <code>> git checkout main</code>
